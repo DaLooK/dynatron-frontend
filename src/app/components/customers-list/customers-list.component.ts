@@ -18,6 +18,7 @@ import { customerStore } from '../../state/customer-store';
 import { formatDate } from '@angular/common';
 import { CustomersService } from '../../services/customers.service';
 import { SavingCellRendererComponent } from '../saving-cell-renderer/saving-cell-renderer.component';
+import { RowActionsCellRendererComponent } from '../row-actions-cell-renderer/row-actions-cell-renderer.component';
 
 @Component({
   selector: 'app-customers-list',
@@ -82,13 +83,14 @@ export class CustomersListComponent {
       width: 220,
     },
     {
-      field: 'updatedAt',
-      valueFormatter: (params) => {
-        return params.data?.createdAt ? formatDate(params.data.updatedAt, 'medium', 'en-US') : '-';
-      },
+      cellRenderer: RowActionsCellRendererComponent,
       width: 220,
     },
   ];
+
+  helloWorld() {
+    console.log('helloworld');
+  }
 
   getRowIdFn(params: GetRowIdParams<Customer>) {
     return params.data.id.toString();

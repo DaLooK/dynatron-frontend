@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Confirm Delete</h1>
+<div mat-dialog-content>
+    <p>Are you sure you want to delete the following customer?</p>
+    <ul>
+        <li><strong>First Name:</strong> {{data.firstName}}</li>
+        <li><strong>Last Name:</strong> {{data.lastName}}</li>
+        <li><strong>Email:</strong> {{data.email}}</li>
+    </ul>
+</div>
+<div mat-dialog-actions>
+    <button mat-flat-button (click)="onCancel()">Cancel</button>
+    <button mat-flat-button color="warn" (click)="onConfirm()">Delete</button>
+</div>

@@ -56,4 +56,16 @@ export class CustomersService {
       customerStoreFn.addCustomer(customer);
     });
   }
+
+  deleteCustomer(customer: Customer) {
+    customerStoreFn.setLoading(true);
+    this.http.delete(`${SERVER_ADDRESS}/customers/${customer.id}`)
+        .pipe(
+          finalize(() => {
+            customerStoreFn.setLoading(false);
+          }),
+        ).subscribe(() => {
+      customerStoreFn.removeCustomer(customer.id);
+    });
+  }
 }
