@@ -1,0 +1,11 @@
+<ag-grid-angular
+        class="ag-theme-quartz"
+        [rowData]="customers()"
+        [columnDefs]="colDefs"
+        rowSelection="single"
+        [getRowId]="getRowIdFn"
+        (rowSelected)="onRowSelected($event)"
+        (cellValueChanged)="cellChanged($event)"
+        (gridReady)="onGridReady($event)"
+        (firstDataRendered)="firstDataRenderedCallback()"
+/>
